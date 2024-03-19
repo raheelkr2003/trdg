@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Dice Roller</title>
+</head>
+<body>
+    <div class="main">
+    <div class="main2">
+      <h1>Dice Roller</h1>
+      <div class="button">
+        <button id="shuffleButton">Shuffle</button>
+        </div>
+      <div id="diceImages">
+        <img id="dice0" class="dice0" src="./dice 0.png" alt="Dice 0">
+        <img id="dice1" class="dice" src="./dice 1.png" alt="Dice 1">
+        <img id="dice2" class="dice" src="./dice 2.png" alt="Dice 2">
+        <img id="dice3" class="dice" src="./dice 3.png" alt="Dice 3">
+        <img id="dice4" class="dice" src="./dice 4.png" alt="Dice 4">
+        <img id="dice5" class="dice" src="./dice 5.png" alt="Dice 5">
+        <img id="dice6" class="dice" src="./dice 6.png" alt="Dice 6">
+      </div>
+      
+    </div>
+    </div>
+
+<script>
+    const diceImages = document.querySelectorAll('.dice');
+    const shuffleButton = document.getElementById('shuffleButton');
+
+    function getRandomNumber() {
+        return Math.ceil(Math.random() * 6);
+    }
+
+    shuffleButton.addEventListener('click', function() {
+    
+        document.getElementById('dice0').style.display = 'none';
+        
+        const randomNumber = getRandomNumber(1, 6);
+        diceImages.forEach(dice => dice.style.display = 'none');
+        document.getElementById(`dice${randomNumber}`).style.display = 'block';
+    });
+</script>
+</body>
+</html>
